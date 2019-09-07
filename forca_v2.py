@@ -2,10 +2,7 @@
 # Hangman Game (Jogo da Forca)
 # Programação Orientada a Objetos
 
-
-# Import
 import random
-
 
 # Board (tabuleiro)
 
@@ -19,7 +16,7 @@ board = ['''
 	|
 	|
 	|
-=========''', '''
+=========''', r'''
 
 +---+
 |   |
@@ -27,7 +24,7 @@ O   |
 	|
 	|
 	|
-=========''', '''
+=========''', r'''
 
 +---+
 |   |
@@ -35,7 +32,7 @@ O   |
 |   |
 	|
 	|
-=========''', '''
+=========''', r'''
 
  +---+
  |   |
@@ -43,13 +40,15 @@ O   |
 /|   |
 	 |
 	 |
-=========''', ''' +---+
+=========''',
+
+ r''' +---+
  |   |
  O   |
 /|\  |
 	 |
 	 |
-=========''', '''
+=========''', r'''
 
  +---+
  |   |
@@ -57,7 +56,7 @@ O   |
 /|\  |
 /    |
 	 |
-=========''', '''
+=========''', r'''
 
  +---+
  |   |
@@ -81,18 +80,15 @@ class Hangman:
 
 	# Método para advinhar a letra
 	def guess(self):
-#		print('emtrou no guess')
 		letter = str(input())
 		if not letter in self.word:
 			self.wrong_letter.append(letter)
-#			print('entrou errado21')
 		else:
 			self.accept_letter.append(letter)
 			positions = [indice for indice,valor in enumerate(self.word) if valor == letter]
 			self.secret_word = list(self.secret_word)
 			for pos in positions: self.secret_word[pos] = letter
 			self.secret_word = ''.join(self.secret_word)
-########print('entrou errado')
 
 
 	# Método para verificar se o jogo terminou
@@ -112,7 +108,7 @@ class Hangman:
 	def print_game_status(self):
 		print(board[len(self.wrong_letter)])
 		print('Palavra: {}'.format(self.secret_word))
-		print('Letras erratas:')
+		print('Letras erradas:')
 		print('\n'.join(self.wrong_letter))
 		print('Letras corretas:')
 		print('\n'.join(self.accept_letter))
@@ -144,10 +140,7 @@ def main():
 	else:
 		print('\nGame over! Você perdeu.')
 		print('A palavra era ' + game.word)
-
-	print('\nFoi bom jogar com você! Agora vá estudar!\n')
-
-
+		
 # Executa o programa
 if __name__ == "__main__":
 	main()

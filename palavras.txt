@@ -1,7 +1,5 @@
 bola
-
 casa
-
 massa
 chocolate
 iluminacao
